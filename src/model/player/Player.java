@@ -1,62 +1,59 @@
-// class
 package model.player;
 
 import java.util.ArrayList;
-import model.card.Card;
-import model.Colour;
 
+import exception.GameException;
+import exception.InvalidCardException;
+import exception.InvalidMarbleException;
+import model.Colour;
+import model.card.Card;
+
+@SuppressWarnings("unused")
 public class Player {
-	
-	
-	//Attributes
-	private final String name;
-	private final Colour colour;
-	private ArrayList<Card> hand;
-	private final ArrayList<Marble> marbles;
-	private Card selectedCard;
+    private final String name;
+    private final Colour colour;
+    private ArrayList<Card> hand;
+    private final ArrayList<Marble> marbles;
+    private Card selectedCard;
 	private final ArrayList<Marble> selectedMarbles;
 
-	
-	
-	//getters and setters
-	public void setHand(ArrayList<Card> hand) {
-		this.hand = hand;
-	}
+    public Player(String name, Colour colour) {
+        this.name = name;
+        this.colour = colour;
+        this.hand = new ArrayList<>();
+        this.selectedMarbles = new ArrayList<>();
+        this.marbles = new ArrayList<>();
+        
+        for (int i = 0; i < 4; i++) {
+            this.marbles.add(new Marble(colour));
+        }
+        
+        //default value
+        this.selectedCard = null;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Colour getColour() {
-		return colour;
-	}
+    public Colour getColour() {
+        return colour;
+    }
 
-	public ArrayList<Card> getHand() {
-		return hand;
-	}
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
 
-	public ArrayList<Marble> getMarbles() {
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
+    }
+    
+    public ArrayList<Marble> getMarbles() {
 		return marbles;
 	}
+    
+    public Card getSelectedCard() {
+        return selectedCard;
+    }
 
-	public Card getSelectedCard() {
-		return selectedCard;
-	}
-
-	
-	
-	public Player(String name, Colour colour) {
-		this.name = name;
-		this.colour = colour;
-		hand = new ArrayList <Card> ();
-		selectedMarbles = new ArrayList <Marble> ();
-		marbles = new ArrayList <Marble> ();
-		marbles.add(new Marble(colour));
-		marbles.add(new Marble(colour));
-		marbles.add(new Marble(colour));
-		marbles.add(new Marble(colour));
-		selectedCard = null; 
-	}
-
-	
 }

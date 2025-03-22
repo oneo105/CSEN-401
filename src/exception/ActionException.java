@@ -1,14 +1,13 @@
 package exception;
 
-abstract public class ActionException extends GameException{
+public abstract class ActionException extends GameException {
 	
 	public ActionException() {
-		super();
-	}
+        super();
+    }
 	
-	public ActionException(String message) {
-		super(message);
-	}
-	
+    public ActionException(String message) {
+        super(message);
+    }
 
 }
